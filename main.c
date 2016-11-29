@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/15 01:02:32 by fgrea             #+#    #+#             */
-/*   Updated: 2016/11/23 22:19:01 by fgrea            ###   ########.fr       */
+/*   Created: 2016/11/21 14:41:53 by fgrea             #+#    #+#             */
+/*   Updated: 2016/11/21 17:37:58 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
+#include "get_next_line.h"
+#include <fcntl.h>
 
-char	*ft_strnew(size_t size)
+int		get_next_line(const int fd, char **line);
+
+int		main(int argc, char **argv)
 {
-	char	*str;
+	char	**lol = NULL;
+	int		fd;
+	int 	r;
 
-	if((str = (char *)malloc(sizeof(str) * (size + 1))) == NULL)
-		return (NULL);
-	ft_memset(str, (int)'\0', (size + 1));
-	return (str);
+	fd = open("testxt", O_RDONLY);
+
+	r = 1;
+	while (r == 1)
+	{
+		r = get_next_line(fd, lol);
+		printf("%s\n", *lol);
+	}
+	return (0);
 }
