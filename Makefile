@@ -6,7 +6,7 @@
 #    By: fgrea <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/16 21:43:43 by fgrea             #+#    #+#              #
-#    Updated: 2016/11/23 22:05:35 by fgrea            ###   ########.fr        #
+#    Updated: 2016/12/03 22:01:50 by fgrea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 	  ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-	  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstmap.c \
-	  ft_strncmp.c ft_lstiter.c ft_strnlen.c ft_printanswer.c \
+	  ft_strncmp.c ft_strnlen.c ft_printanswer.c \
 	  ft_printquestion.c ft_sqrt.c ft_pow.c
 
 SRC2 = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
@@ -36,8 +35,7 @@ SRC2 = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 	   ft_strmapi.o ft_strequ.o ft_strnequ.o ft_strsub.o ft_strjoin.o \
 	   ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putchar.o ft_putstr.o \
 	   ft_putendl.o ft_putnbr.o ft_putchar_fd.o ft_putstr_fd.o \
-	   ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstdelone.o \
-	   ft_lstdel.o ft_lstadd.o ft_lstmap.o ft_strncmp.o ft_lstiter.o \
+	   ft_putendl_fd.o ft_putnbr_fd.o \
 	   ft_strnlen.o ft_printanswer.o ft_printquestion.o ft_sqrt.o ft_pow.o
 
 all: $(NAME)
