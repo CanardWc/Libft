@@ -6,7 +6,7 @@
 #    By: fgrea <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/16 21:43:43 by fgrea             #+#    #+#              #
-#    Updated: 2017/02/01 19:32:02 by fgrea            ###   ########.fr        #
+#    Updated: 2017/02/03 21:06:31 by fgrea            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,21 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstmap.c \
 	  ft_strncmp.c ft_lstiter.c ft_strnlen.c ft_printanswer.c \
-	  ft_printquestion.c ft_sqrt.c ft_pow.c get_next_line.c
+	  ft_printquestion.c ft_sqrt.c ft_pow.c get_next_line.c \
+	  ft_strncmp.c ft_strnlen.c ft_printanswer.c \
+	  ft_printquestion.c ft_sqrt.c ft_pow.c
 
-SRC2 = $(subst .c,.o,$(SRC))
+OBJ = $(SRC:.c=.o)
 
 $(NAME):
 	gcc -c -Wall -Wextra -Werror $(SRC) -I includes/
-	ar rc $(NAME) $(SRC2)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 all: $(NAME)
 
 clean:
-	/bin/rm -rf $(SRC2)
+	/bin/rm -rf $(OBJ)
 
 fclean: clean
 	/bin/rm -rf $(NAME)

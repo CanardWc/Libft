@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 18:40:03 by fgrea             #+#    #+#             */
-/*   Updated: 2017/02/01 09:02:09 by fgrea            ###   ########.fr       */
+/*   Updated: 2017/02/03 21:02:58 by fgrea            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <fcntl.h>
 
 # define BUFF_SIZE 90
 
