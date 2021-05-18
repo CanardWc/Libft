@@ -1,48 +1,92 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: fgrea <marvin@42.fr>                       +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/11/16 21:43:43 by fgrea             #+#    #+#              #
-#    Updated: 2017/02/03 21:06:31 by fgrea            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
-	  ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c \
-	  ft_strncat.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strstr.c \
-	  ft_strnstr.c ft_strcmp.c ft_atoi.c ft_isalpha.c ft_isdigit.c \
-	  ft_isalnum.c ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c \
-	  ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strclr.c \
-	  ft_striter.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c \
-	  ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
-	  ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
-	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-	  ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstmap.c \
-	  ft_strncmp.c ft_lstiter.c ft_strnlen.c ft_printanswer.c \
-	  ft_printquestion.c ft_sqrt.c ft_pow.c get_next_line.c \
-	  ft_strncmp.c ft_strnlen.c ft_printanswer.c \
-	  ft_printquestion.c ft_sqrt.c ft_pow.c
+CC = cc
+C_FLAGS = -Wall -Wextra -Werror
 
-OBJ = $(SRC:.c=.o)
+OBJ_PATH = ./objs/
+INC_PATH = ./includes/
+SRC_PATH = ./srcs/
 
-$(NAME):
-	gcc -c -Wall -Wextra -Werror $(SRC) -I includes/
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
+OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC_NAME = ft_atoi.c ft_strdup.c ft_bzero.c ft_putnbr_fd.c ft_strjoin.c \
+	   	ft_calloc.c ft_strlcat.c ft_isalnum.c ft_strlcpy.c \
+		ft_isalpha.c ft_memccpy.c ft_strlen.c ft_isascii.c ft_memchr.c \
+		ft_strmapi.c ft_isdigit.c ft_memcmp.c ft_strncmp.c \
+		ft_isprint.c ft_memcpy.c ft_strnstr.c ft_isspace.c \
+		ft_memmove.c ft_strrchr.c ft_itoa.c ft_memset.c ft_strtrim.c \
+		ft_putchar_fd.c ft_substr.c ft_putendl_fd.c ft_tolower.c \
+		ft_putstr_fd.c ft_toupper.c ft_split.c ft_strchr.c \
+		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
+		ft_lstmap.c ft_putmem_fd.c ft_putnbr_base_fd.c ft_atoi_base.c \
+		get_next_line.c \
+		ft_printf/ft_printf.c \
+		ft_printf/utils/ft_search.c \
+		ft_printf/utils/ft_round_dbl.c \
+		ft_printf/utils/double/ft_getdbl.c \
+		ft_printf/utils/double/ft_getdbl_exponent.c \
+		ft_printf/utils/double/ft_getdbl_fraction.c \
+		ft_printf/utils/double/ft_dbl_case_f.c \
+		ft_printf/utils/double/ft_dbl_case_e.c \
+		ft_printf/ft_format_functions/ft_format_c.c \
+		ft_printf/ft_format_functions/ft_format_s.c \
+		ft_printf/ft_format_functions/ft_format_int.c \
+		ft_printf/ft_format_functions/ft_format_uint.c  \
+		ft_printf/ft_format_functions/ft_format_percent.c \
+		ft_printf/ft_format_functions/ft_format_f.c \
+		ft_printf/ft_format_functions/ft_format_e.c \
+		ft_printf/ft_format_functions/ft_format_g.c \
+		ft_printf/ft_format_functions/ft_format_n.c \
+		ft_printf/ft_flag_functions/ft_flag_min.c \
+		ft_printf/ft_flag_functions/ft_flag_number.c \
+		ft_printf/ft_flag_functions/ft_flag_asterisk.c \
+		ft_printf/ft_flag_functions/ft_flag_hash.c \
+		ft_printf/ft_flag_functions/ft_flag_plus.c \
+		ft_printf/ft_flag_functions/ft_flag_spc.c \
+		ft_printf/ft_flag_functions/ft_flag_zero.c \
+		ft_printf/ft_flag_functions/ft_flag_prec.c \
+		ft_printf/ft_flag_functions/ft_format_h_int.c \
+		ft_printf/ft_flag_functions/ft_format_h_uint.c \
+		ft_printf/ft_flag_functions/ft_format_hh_int.c \
+		ft_printf/ft_flag_functions/ft_format_hh_uint.c
+
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+INC = $(addprefix -I,$(INC_PATH))
 
 all: $(NAME)
 
+$(NAME): $(OBJ)
+	@ar rcs $@ $(OBJ)
+	@echo "Obj folder & files created"
+	@echo "Executable created"
+	@echo "Compilation finished"
+
+$(OBJ): | $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) $(C_FLAGS) $(INC) -o $@ -c $<
+
+$(OBJ_PATH):
+	@mkdir $(OBJ_PATH) 2> /dev/null || true
+	@mkdir $(OBJ_PATH)ft_printf/ 2> /dev/null || true
+	@mkdir $(OBJ_PATH)ft_printf/ft_format_functions/ 2> /dev/null || true
+	@mkdir $(OBJ_PATH)ft_printf/ft_flag_functions/ 2> /dev/null || true
+	@mkdir $(OBJ_PATH)ft_printf/utils/ 2> /dev/null || true
+	@mkdir $(OBJ_PATH)ft_printf/utils/double/ 2> /dev/null || true
+
 clean:
-	/bin/rm -rf $(OBJ)
+	@rm -rf $(OBJ_PATH) 2> /dev/null || true
+	@echo "Obj folder & files suppressed"
 
 fclean: clean
-	/bin/rm -rf $(NAME)
+	@rm -f $(NAME)
+	@echo "Executable suppressed"
 
-re: fclean all
+re: fclean
+	@$(MAKE) all
 
-.PHONY: clean fclean re
+norme:
+	@norminette $(SRC)
+	@echo "norme check finished"
