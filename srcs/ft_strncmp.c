@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:08:50 by fgrea             #+#    #+#             */
-/*   Updated: 2021/11/09 18:02:27 by fgrea            ###   ########lyon.fr   */
+/*   Updated: 2021/11/09 20:25:16 by fgrea            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
+	unsigned int	i;
+
+	i = 0;
 	if (n == 0)
 		return (0);
-	if (*s1 && *s2 && *s1 == *s2 && n > 0)
-		ft_strncmp(++s1, ++s2, --n);
-	return ((unsigned char)(*s1) - (unsigned char)(*s2));
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0' && i < n - 1)
+		i++;
+	return (s1[i] - s2[i]);
 }
