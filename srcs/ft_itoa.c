@@ -6,13 +6,13 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 17:24:17 by fgrea             #+#    #+#             */
-/*   Updated: 2021/11/09 17:44:16 by fgrea            ###   ########lyon.fr   */
+/*   Updated: 2021/11/09 18:26:21 by fgrea            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-static char	*fill_str(char *dest, int n)
+static char	*fill_str(char *dest, int n, int size)
 {
 	int	nb;
 
@@ -52,6 +52,6 @@ char	*ft_itoa(int n)
 	dest = (char *)ft_calloc(size + 2, sizeof(char));
 	if (!dest)
 		return (0);
-	dest = fill_str(dest, n);
+	dest = fill_str(dest, n, size);
 	return (dest);
 }
