@@ -6,52 +6,11 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 18:06:28 by fgrea             #+#    #+#             */
-/*   Updated: 2021/11/09 18:06:35 by fgrea            ###   ########lyon.fr   */
+/*   Updated: 2022/05/12 13:26:14 by fgrea            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-
-char	*ft_strjoin(const char *s1, const char *s2)
-{
-	char	*dst;
-	char	*ret;
-
-	dst = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	if (!dst)
-		return (NULL);
-	ret = dst;
-	dst = ft_memcpy(dst, s1, ft_strlen(s1));
-	dst += ft_strlen(s1);
-	dst = ft_memcpy(dst, s2, ft_strlen(s2));
-	dst += ft_strlen(s2);
-	*dst = '\0';
-	return (ret);
-}
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	if (n == 0)
-		return (NULL);
-	while (--n > 0 && *(unsigned char *)s != (unsigned char)c)
-		s++;
-	if (n == 0 && *(unsigned char *)s != (unsigned char)c)
-		return (NULL);
-	else
-		return ((void *)s);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	void	*ret;
-
-	if (!src && !dst)
-		return (NULL);
-	ret = dst;
-	while (n-- > 0)
-		*(unsigned char *)dst++ = *(unsigned char *)src++;
-	return (ret);
-}
 
 int	la_norme_cette_sale_grande_tante(int fd, char **r, char **eol)
 {

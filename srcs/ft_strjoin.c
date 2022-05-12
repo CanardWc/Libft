@@ -6,7 +6,7 @@
 /*   By: fgrea <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 16:03:03 by fgrea             #+#    #+#             */
-/*   Updated: 2021/11/09 17:59:42 by fgrea            ###   ########lyon.fr   */
+/*   Updated: 2022/05/12 12:53:20 by fgrea            ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	char	*dst;
 	char	*ret;
 
-	if (!s1 || !s2)
-		return (NULL);
 	dst = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
